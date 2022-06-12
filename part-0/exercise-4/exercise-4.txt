@@ -1,0 +1,35 @@
+user-->browser: user writes the url in the browser
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{ content: "HTML is easy", date: "2019-05-23" }, ...]
+
+note over browser
+Here the browser is rendering 
+the list with the code from 
+the main.js file
+end note
+
+browser-->user: the user gets the page fully rendered
+user-->browser: the user start writing a note in the input field
+user-->browser: the user clicks on the save button
+
+browser-->server: the new note is send to the server inside the HTTP GET to HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+
+note over browser
+then all the process happens again 
+and the whole list is fetched
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
